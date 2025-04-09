@@ -2,6 +2,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import './assets/index.scss'
 import FormCreateCard from "./components/FormCreateCard/FormCreateCard";
 import CardList from "./components/CardList/CardList";
+
 export default function App() {
   const [cards, setCards] = useLocalStorage<{ id: number; text: string; image: string }[]>('cards', []);
 

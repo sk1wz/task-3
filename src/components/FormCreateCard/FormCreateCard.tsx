@@ -26,6 +26,14 @@ const FormCreateCard: React.FC<FormProps> = ({ onSave }) => {
       fileInputRef.current.value = '';
     }
   };
+  
+  const handleClear =() =>{
+    setText('');
+    setImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  }
 
   const isButtonActive = text.trim() !== '' || image;
   return (
@@ -35,6 +43,7 @@ const FormCreateCard: React.FC<FormProps> = ({ onSave }) => {
         <input type="text" placeholder="Введите текст карточки" value={text} onChange={handleTextChange} required />
         <input type="file" placeholder="Выберите изображение" ref={fileInputRef}  onChange={handleImageChange} required />
         <button onClick={handleSubmit} disabled={!isButtonActive}>Сохранить</button>
+        <button onClick={handleClear} disabled={!isButtonActive}>Очистить</button>
       </form>
     </div>
   );
